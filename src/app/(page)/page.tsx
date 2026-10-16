@@ -1,37 +1,40 @@
-import Header from "../../components/Header";
-import Hero from "../../components/Hero";
-import Footer from "../../components/Footer";
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
 import AboutUs from "@/components/AboutUs";
 import Services from "@/components/Services";
 import OurPhilosophy from "@/components/OurPhilosophy";
 import Location from "@/components/Location";
 import FinalCalltoAction from "@/components/FinalCalltoAction";
+import Footer from "@/components/Footer";
+import FloatingContact from "@/components/FloatingContact";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#FCFBF7] text-[#1E271B]">
       <Header />
-      <main className="flex-grow p-8 sm:p-20 text-center sm:text-left bg-[#D8E2C6]">
-        <section id="home">
+      <main className="flex-grow w-full overflow-hidden">
+        <div id="home">
           <Hero />
-        </section>
-        <section id="about">
+        </div>
+        <div id="about">
           <AboutUs />
-        </section>
-        <section id="services">
+        </div>
+        <div id="services">
           <Services />
-        </section>
-        <section id="philosophy">
+        </div>
+        <div id="philosophy">
           <OurPhilosophy />
-        </section>
-        <section id="location">
+        </div>
+        <div id="location">
           <Location />
-        </section>
-        <section id="contact">
+        </div>
+        <div id="contact">
           <FinalCalltoAction />
-        </section>
+        </div>
       </main>
       <Footer />
+      <FloatingContact />
     </div>
   );
 }
+

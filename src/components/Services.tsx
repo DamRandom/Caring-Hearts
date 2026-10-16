@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect } from "react";
-import "aos/dist/aos.css";
+import Image from 'next/image';
+import Link from 'next/link';
 import {
   FaUserNurse,
   FaUtensils,
@@ -9,105 +9,165 @@ import {
   FaHandsHelping,
   FaPills,
   FaPalette,
-} from "react-icons/fa";
-import Image from "next/image";
+} from 'react-icons/fa';
+import { FiArrowUpRight, FiCheck } from 'react-icons/fi';
 
 const services = [
   {
-    title: "24/7 Nursing Care",
-    description: "Round-the-clock care by professional nurses to ensure safety and well-being.",
-    icon: <FaUserNurse size={30} className="text-[#FFFDF8]" />,
-    image: "/images/nursing-care.jpg",
+    title: '24/7 Nursing & Supervised Care',
+    description:
+      'Continuous, professional monitoring and support around the clock to safeguard health, emergency response, and overall peace of mind.',
+    icon: <FaUserNurse className="text-[#4A5443] text-xl" />,
+    image: '/images/nursing-care.png',
+    tag: 'Round-the-Clock',
+    features: ['Vitals Monitoring', 'Certified Staff', 'Immediate Assistance'],
   },
   {
-    title: "Nutritious Meals",
-    description: "Balanced and personalized meals to support physical and mental health.",
-    icon: <FaUtensils size={30} className="text-[#FFFDF8]" />,
-    image: "/images/nutritious-meals.jpg",
+    title: 'Nutritious & Balanced Meals',
+    description:
+      'Chef-crafted, wholesome meals and healthy snacks tailored to dietary requirements, promoting physical vitality and mental clarity.',
+    icon: <FaUtensils className="text-[#4A5443] text-xl" />,
+    image: '/images/nutritious-meals.png',
+    tag: 'Nutrition & Wellness',
+    features: ['3 Fresh Meals Daily', 'Dietary Restrictions Met', 'Healthy Snacks'],
   },
   {
-    title: "Daily Housekeeping",
-    description: "A clean and organized living space to promote a healthy environment.",
-    icon: <FaBroom size={30} className="text-[#FFFDF8]" />,
-    image: "/images/daily-housekeeping.jpg",
+    title: 'Daily Housekeeping & Laundry',
+    description:
+      'A spotlessly clean, sanitized, and organized residential setting that respects personal space and maintains dignified living standards.',
+    icon: <FaBroom className="text-[#4A5443] text-xl" />,
+    image: '/images/daily-housekeeping.png',
+    tag: 'Clean Living',
+    features: ['Fresh Linens & Laundry', 'Daily Room Tidying', 'Sanitized Common Areas'],
   },
   {
-    title: "Emotional Support",
-    description: "Individual and group therapy sessions to foster emotional well-being.",
-    icon: <FaHandsHelping size={30} className="text-[#FFFDF8]" />,
-    image: "/images/emotional-support.jpg",
+    title: 'Emotional Support & Guidance',
+    description:
+      'Individual attention and structured group conversations fostering emotional regulation, active listening, and mental health resilience.',
+    icon: <FaHandsHelping className="text-[#4A5443] text-xl" />,
+    image: '/images/emotional-support.png',
+    tag: 'Mental Health Focus',
+    features: ['Compassionate Mentorship', 'Coping Strategies', 'Peer Community'],
   },
   {
-    title: "Medication Management",
-    description: "Proper administration and monitoring of prescribed medications.",
-    icon: <FaPills size={30} className="text-[#FFFDF8]" />,
-    image: "/images/medication-management.jpg",
+    title: 'Medication Management',
+    description:
+      'Careful, scheduled assistance and diligent tracking to ensure all prescribed medications are taken safely and consistently on time.',
+    icon: <FaPills className="text-[#4A5443] text-xl" />,
+    image: '/images/medication-management.png',
+    tag: 'Safety First',
+    features: ['Strict Schedule Adherence', 'Physician Coordination', 'Locked Storage'],
   },
   {
-    title: "Recreational Activities",
-    description: "Engaging activities to stimulate the mind and encourage social interaction.",
-    icon: <FaPalette size={30} className="text-[#FFFDF8]" />,
-    image: "/images/recreational-activities.jpg",
+    title: 'Recreational & Social Activities',
+    description:
+      'Engaging recreational games, gardening, walking, and outings designed to stimulate cognitive abilities and build fulfilling camaraderie.',
+    icon: <FaPalette className="text-[#4A5443] text-xl" />,
+    image: '/images/recreational-activities.png',
+    tag: 'Active Lifestyle',
+    features: ['Board Games & Arts', 'Outdoor Recreation', 'Community Engagement'],
   },
 ];
 
 export default function Services() {
-  useEffect(() => {
-    import("aos").then((AOS) => {
-      AOS.init({ duration: 1000 });
-    });
-  }, []);
-
   return (
-    <section id="services" className="py-16 px-6 sm:px-12 lg:px-20 bg-[#FFFDF8]">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-[#2C352A] mb-6" data-aos="fade-up">
-          Our Services
-        </h2>
-        <p className="text-lg text-[#2C352A] opacity-90 mb-12" data-aos="fade-up" data-aos-delay="200">
-          We provide comprehensive support tailored to the needs of our residents, ensuring a safe and nurturing environment.
-        </p>
+    <section id="services" className="py-20 sm:py-28 bg-[#FCFBF7] relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EEF3E9] text-[#4A5443] text-xs font-bold uppercase tracking-wider mb-3">
+            Comprehensive Services
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#2C352A] tracking-tight mb-4">
+            Whole-Person Supportive Care
+          </h2>
+          <p className="text-base sm:text-lg text-[#5F6B56] leading-relaxed">
+            Our multidisciplinary approach blends compassionate supervision, structured daily living, and emotional reinforcement to empower every resident.
+          </p>
+        </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              className="group relative w-full h-56"
+              className="group bg-white rounded-3xl overflow-hidden border border-[#A7B79C]/30 shadow-soft hover:shadow-elevation transition-all duration-300 flex flex-col hover:-translate-y-1.5"
               data-aos="fade-up"
-              data-aos-delay={index * 200} 
+              data-aos-delay={index * 100}
             >
-              {/* Card container */}
-              <div className="absolute inset-0 w-full h-full rounded-lg overflow-hidden transition-all duration-500 transform group-hover:scale-105">
-                {/* Card with image */}
-                <div className="relative w-full h-full">
-                  <div className="absolute inset-0 w-full h-full overflow-hidden bg-black bg-opacity-40 group-hover:bg-transparent transition-all duration-500">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      layout="fill"
-                      objectFit="cover"
-                    />
-                  </div>
+              {/* Image Banner */}
+              <div className="relative w-full h-52 overflow-hidden bg-[#EEF3E9]">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-108"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                
+                {/* Category Tag */}
+                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-[#2C352A] text-xs font-bold px-3 py-1 rounded-full shadow-xs">
+                  {service.tag}
                 </div>
 
-                {/* Card content (hidden initially, shown on hover) */}
-                <div className="absolute inset-0 w-full h-full flex justify-center items-center transition-all duration-500 group-hover:bg-transparent group-hover:opacity-0 group-hover:text-transparent">
-                  <div className="relative z-10 p-4 text-center bg-[#A7B79C] opacity-80 flex flex-col items-center transition-opacity duration-300 ease-in-out">
-                    {service.icon}
-                    <h3 className="text-xl font-semibold text-[#FFFDF8] mt-4">
-                      {service.title}
-                    </h3>
-                    <p className="text-[#FFFDF8] opacity-90 mt-2">
-                      {service.description}
-                    </p>
-                  </div>
+                {/* Service Icon floating badge */}
+                <div className="absolute bottom-4 right-4 w-12 h-12 rounded-2xl bg-white shadow-md flex items-center justify-center border border-[#A7B79C]/30 transform group-hover:scale-110 transition-transform">
+                  {service.icon}
                 </div>
+              </div>
+
+              {/* Card Body */}
+              <div className="p-6 sm:p-7 flex flex-col flex-grow">
+                <h3 className="text-xl font-bold text-[#2C352A] group-hover:text-[#4A5443] transition-colors mb-2.5">
+                  {service.title}
+                </h3>
+                
+                <p className="text-sm text-[#5F6B56] leading-relaxed mb-5 flex-grow">
+                  {service.description}
+                </p>
+
+                {/* Feature Checklist */}
+                <div className="space-y-1.5 pt-4 border-t border-[#4A5443]/10 mb-5">
+                  {service.features.map((feature, fIdx) => (
+                    <div key={fIdx} className="flex items-center gap-2 text-xs text-[#353D30] font-medium">
+                      <FiCheck className="text-[#4A5443] shrink-0" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Inquire Link */}
+                <Link
+                  href="#contact"
+                  className="inline-flex items-center justify-between text-sm font-bold text-[#4A5443] group-hover:text-[#353D30] pt-2"
+                >
+                  <span>Request Information</span>
+                  <div className="w-8 h-8 rounded-full bg-[#EEF3E9] group-hover:bg-[#4A5443] group-hover:text-white flex items-center justify-center transition-colors">
+                    <FiArrowUpRight className="text-base" />
+                  </div>
+                </Link>
               </div>
             </div>
           ))}
         </div>
+
+        {/* Bottom Banner with Quick Call */}
+        <div className="mt-14 p-8 rounded-3xl bg-gradient-to-r from-[#EEF3E9] to-[#F7F4EC] border border-[#A7B79C]/40 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+          <div>
+            <h4 className="text-xl font-bold text-[#2C352A]">Have questions about specific care requirements?</h4>
+            <p className="text-sm text-[#5F6B56] mt-1">Our admissions team is available to review personal accommodations and medical needs.</p>
+          </div>
+          <Link
+            href="#contact"
+            className="shrink-0 bg-[#4A5443] hover:bg-[#353D30] text-white font-semibold px-6 py-3 rounded-full text-sm shadow-sm transition-all"
+          >
+            Speak with Admissions
+          </Link>
+        </div>
+
       </div>
     </section>
   );
 }
+
