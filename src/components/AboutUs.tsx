@@ -77,19 +77,28 @@ const AboutUs = () => {
             </div>
 
             {/* 3 Core Pillars */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 pt-6 border-t border-[#4A5443]/15">
-              {pillars.map((pillar, idx) => (
-                <div
-                  key={idx}
-                  className="p-4 rounded-2xl bg-white/70 border border-[#A7B79C]/25 shadow-xs hover:shadow-sm transition-shadow"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-[#EEF3E9] flex items-center justify-center mb-3">
-                    {pillar.icon}
+            <div className="mt-8 pt-6 border-t border-[#4A5443]/15">
+              {/* Mobile: horizontal scroll carousel | sm+: 3-col grid */}
+              <div className="flex sm:grid sm:grid-cols-3 gap-4 overflow-x-auto sm:overflow-visible pb-2 sm:pb-0 snap-x snap-mandatory scroll-smooth -mx-4 px-4 sm:mx-0 sm:px-0">
+                {pillars.map((pillar, idx) => (
+                  <div
+                    key={idx}
+                    className="p-4 rounded-2xl bg-white/70 border border-[#A7B79C]/25 shadow-xs hover:shadow-sm transition-shadow snap-start flex-shrink-0 w-[75vw] sm:w-auto"
+                  >
+                    <div className="w-10 h-10 rounded-xl bg-[#EEF3E9] flex items-center justify-center mb-3">
+                      {pillar.icon}
+                    </div>
+                    <h3 className="text-base font-bold text-[#2C352A] mb-1.5">{pillar.title}</h3>
+                    <p className="text-xs text-[#5F6B56] leading-relaxed">{pillar.desc}</p>
                   </div>
-                  <h3 className="text-base font-bold text-[#2C352A] mb-1.5">{pillar.title}</h3>
-                  <p className="text-xs text-[#5F6B56] leading-relaxed">{pillar.desc}</p>
-                </div>
-              ))}
+                ))}
+              </div>
+              {/* Mobile scroll hint dots */}
+              <div className="flex sm:hidden justify-center gap-1.5 mt-3">
+                {pillars.map((_, i) => (
+                  <span key={i} className="w-1.5 h-1.5 rounded-full bg-[#4A5443]/30" />
+                ))}
+              </div>
             </div>
 
           </div>

@@ -87,48 +87,48 @@ export default function Services() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              className="group bg-white rounded-3xl overflow-hidden border border-[#A7B79C]/30 shadow-soft hover:shadow-elevation transition-all duration-300 flex flex-col hover:-translate-y-1.5"
+              className="group bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-[#A7B79C]/30 shadow-soft hover:shadow-elevation transition-all duration-300 flex flex-col hover:-translate-y-1.5"
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
               {/* Image Banner */}
-              <div className="relative w-full h-52 overflow-hidden bg-[#EEF3E9]">
+              <div className="relative w-full h-32 sm:h-44 lg:h-52 overflow-hidden bg-[#EEF3E9]">
                 <Image
                   src={service.image}
                   alt={service.title}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-108"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 
                 {/* Category Tag */}
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-[#2C352A] text-xs font-bold px-3 py-1 rounded-full shadow-xs">
+                <div className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-white/90 backdrop-blur-md text-[#2C352A] text-[10px] sm:text-xs font-bold px-2 py-0.5 sm:px-3 sm:py-1 rounded-full shadow-xs">
                   {service.tag}
                 </div>
 
                 {/* Service Icon floating badge */}
-                <div className="absolute bottom-4 right-4 w-12 h-12 rounded-2xl bg-white shadow-md flex items-center justify-center border border-[#A7B79C]/30 transform group-hover:scale-110 transition-transform">
-                  {service.icon}
+                <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 w-9 h-9 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-white shadow-md flex items-center justify-center border border-[#A7B79C]/30 transform group-hover:scale-110 transition-transform">
+                  <span className="text-sm sm:text-xl">{service.icon}</span>
                 </div>
               </div>
 
               {/* Card Body */}
-              <div className="p-6 sm:p-7 flex flex-col flex-grow">
-                <h3 className="text-xl font-bold text-[#2C352A] group-hover:text-[#4A5443] transition-colors mb-2.5">
+              <div className="p-3 sm:p-6 lg:p-7 flex flex-col flex-grow">
+                <h3 className="text-sm sm:text-xl font-bold text-[#2C352A] group-hover:text-[#4A5443] transition-colors mb-1 sm:mb-2.5 leading-snug">
                   {service.title}
                 </h3>
                 
-                <p className="text-sm text-[#5F6B56] leading-relaxed mb-5 flex-grow">
+                <p className="hidden sm:block text-sm text-[#5F6B56] leading-relaxed mb-5 flex-grow">
                   {service.description}
                 </p>
 
-                {/* Feature Checklist */}
-                <div className="space-y-1.5 pt-4 border-t border-[#4A5443]/10 mb-5">
+                {/* Feature Checklist - hidden on mobile for compactness */}
+                <div className="hidden sm:block space-y-1.5 pt-4 border-t border-[#4A5443]/10 mb-5">
                   {service.features.map((feature, fIdx) => (
                     <div key={fIdx} className="flex items-center gap-2 text-xs text-[#353D30] font-medium">
                       <FiCheck className="text-[#4A5443] shrink-0" />
@@ -137,14 +137,24 @@ export default function Services() {
                   ))}
                 </div>
 
+                {/* Mobile: compact feature list */}
+                <div className="sm:hidden flex flex-wrap gap-1 mt-1.5 mb-2">
+                  {service.features.slice(0, 2).map((feature, fIdx) => (
+                    <span key={fIdx} className="text-[10px] text-[#4A5443] font-semibold bg-[#EEF3E9] px-2 py-0.5 rounded-full">
+                      {feature}
+                    </span>
+                  ))}
+                </div>
+
                 {/* Inquire Link */}
                 <Link
                   href="#contact"
-                  className="inline-flex items-center justify-between text-sm font-bold text-[#4A5443] group-hover:text-[#353D30] pt-2"
+                  className="inline-flex items-center justify-between text-xs sm:text-sm font-bold text-[#4A5443] group-hover:text-[#353D30] pt-1 sm:pt-2 mt-auto"
                 >
-                  <span>Request Information</span>
-                  <div className="w-8 h-8 rounded-full bg-[#EEF3E9] group-hover:bg-[#4A5443] group-hover:text-white flex items-center justify-center transition-colors">
-                    <FiArrowUpRight className="text-base" />
+                  <span className="hidden sm:inline">Request Information</span>
+                  <span className="sm:hidden">Inquire</span>
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#EEF3E9] group-hover:bg-[#4A5443] group-hover:text-white flex items-center justify-center transition-colors ml-2">
+                    <FiArrowUpRight className="text-xs sm:text-base" />
                   </div>
                 </Link>
               </div>

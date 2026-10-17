@@ -48,21 +48,21 @@ export default function OurPhilosophy() {
         </div>
 
         {/* Philosophy Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16">
           {philosophies.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white p-7 rounded-3xl border border-[#A7B79C]/30 shadow-soft hover:shadow-elevation transition-all duration-300 hover:-translate-y-1.5 flex flex-col"
+              className="bg-white p-4 sm:p-7 rounded-2xl sm:rounded-3xl border border-[#A7B79C]/30 shadow-soft hover:shadow-elevation transition-all duration-300 hover:-translate-y-1.5 flex flex-col"
               data-aos="fade-up"
               data-aos-delay={idx * 100}
             >
-              <div className="w-14 h-14 rounded-2xl bg-[#EEF3E9] flex items-center justify-center mb-6 shadow-xs border border-[#A7B79C]/20">
-                {item.icon}
+              <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-[#EEF3E9] flex items-center justify-center mb-3 sm:mb-6 shadow-xs border border-[#A7B79C]/20">
+                <span className="text-lg sm:text-2xl text-[#4A5443]">{item.icon}</span>
               </div>
-              <h3 className="text-xl font-bold text-[#2C352A] mb-3">
+              <h3 className="text-sm sm:text-xl font-bold text-[#2C352A] mb-1.5 sm:mb-3 leading-snug">
                 {item.title}
               </h3>
-              <p className="text-sm text-[#5F6B56] leading-relaxed flex-grow">
+              <p className="text-xs sm:text-sm text-[#5F6B56] leading-relaxed flex-grow">
                 {item.description}
               </p>
             </div>
